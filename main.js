@@ -7,7 +7,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1366,
         height: 768,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#707070',
         icon: path.join(__dirname, 'dist/angular-electron/assets/balcony_icon.ico')
     })
 
