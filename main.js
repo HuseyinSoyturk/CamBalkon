@@ -1,16 +1,14 @@
 const { app, BrowserWindow } = require('electron')
+var path = require('path')
 
 let win;
 
 function createWindow() {
     win = new BrowserWindow({
-        width: 600,
-        height: 600,
+        width: 1366,
+        height: 768,
         backgroundColor: '#ffffff',
-        icon: 'file://${__dirname}/src/assets/logo.png',
-        webPreferences: {
-            webSecurity: false
-        }
+        icon: path.join(__dirname, 'dist/angular-electron/assets/balcony_icon.ico')
     })
 
     win.loadURL(`file://${__dirname}/dist/angular-electron/index.html`)
