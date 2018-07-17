@@ -23,7 +23,10 @@
   </mat-grid-tile>
   <mat-grid-tile [colspan]="23" [rowspan]="5">
   </mat-grid-tile>
-  <ng-container *ngFor="let cephe of this.cepheler">
+  <ng-container *ngFor="let cephe of this.cepheler ; let i = index">
+    <mat-grid-tile [colspan]="2" [rowspan]="5">
+      <label> {{i+1}}.Cephe </label>
+    </mat-grid-tile>
     <mat-grid-tile [colspan]="5" [rowspan]="5">
       <mat-form-field>
         <input matInput placeholder="Boy">
@@ -39,7 +42,7 @@
         <input matInput placeholder="Kanat Sayısı">
       </mat-form-field>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="16" [rowspan]="5">
+    <mat-grid-tile [colspan]="14" [rowspan]="5">
     </mat-grid-tile>
   </ng-container>
 </mat-grid-list>
