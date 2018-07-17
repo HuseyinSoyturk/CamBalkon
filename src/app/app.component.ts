@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  cepheSayisi = '';
+  
+  customer = '';
+
+
+  onClickNext() {
+    console.log("cepheSayisi", this.cepheSayisi)
+  }
+
 }

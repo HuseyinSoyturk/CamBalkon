@@ -1,21 +1,41 @@
-<mat-grid-list cols="32" rowHeight="3:1">
+<mat-grid-list cols="32" rowHeight="3:1" style="background : gray;">
   <mat-grid-tile [colspan]="1" [rowspan]="30">
   </mat-grid-tile>
   <mat-grid-tile [colspan]="5" [rowspan]="5">
     <mat-form-field>
-      <input matInput placeholder="Müşteri">
+      <input matInput type="text" placeholder="Müşteri" [(ngModel)]="customer">
+      <button mat-button *ngIf="customer" matSuffix mat-icon-button aria-label="Clear" (click)="customer=''">
+        <mat-icon>close</mat-icon>
+      </button>
     </mat-form-field>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="31" [rowspan]="1">
+  <mat-grid-tile [colspan]="26" [rowspan]="5">
   </mat-grid-tile>
   <mat-grid-tile [colspan]="5" [rowspan]="5">
     <mat-form-field>
-      <input matInput placeholder="Cephe Sayısı">
+      <input matInput type="number" placeholder="Cephe Sayısı" [(ngModel)]="cepheSayisi">
     </mat-form-field>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="3">
+  <mat-grid-tile [colspan]="1" [rowspan]="5">
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="2" [rowspan]="3">
-    <button mat-raised-button color="primary">İleri</button>
+  <mat-grid-tile [colspan]="2" [rowspan]="5">
+    <button mat-raised-button color="primary" (click)="onClickNext()">İleri</button>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="23" [rowspan]="5">
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="5" [rowspan]="5">
+    <mat-form-field>
+      <input matInput placeholder="Boy">
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="5" [rowspan]="5">
+    <mat-form-field>
+      <input matInput placeholder="En">
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="5" [rowspan]="5">
+    <mat-form-field>
+      <input matInput placeholder="Kanat Sayısı">
+    </mat-form-field>
   </mat-grid-tile>
 </mat-grid-list>
