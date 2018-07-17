@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Cephe } from '../cephe';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-
-  cepheSayisi = '';
-  
-  customer = '';
-
+  customer=''
+  cepheSayisi = 0;
+  cepheler = []
 
   onClickNext() {
-    console.log("cepheSayisi", this.cepheSayisi)
+    this.cepheler = []
+    for (let i = 0; i < this.cepheSayisi; i++) {
+      this.cepheler.push(new Cephe('', '', ''))
+    }
   }
 
 }

@@ -23,19 +23,23 @@
   </mat-grid-tile>
   <mat-grid-tile [colspan]="23" [rowspan]="5">
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="5" [rowspan]="5">
-    <mat-form-field>
-      <input matInput placeholder="Boy">
-    </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="5" [rowspan]="5">
-    <mat-form-field>
-      <input matInput placeholder="En">
-    </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="5" [rowspan]="5">
-    <mat-form-field>
-      <input matInput placeholder="Kanat Sayısı">
-    </mat-form-field>
-  </mat-grid-tile>
+  <ng-container *ngFor="let cephe of this.cepheler">
+    <mat-grid-tile [colspan]="5" [rowspan]="5">
+      <mat-form-field>
+        <input matInput placeholder="Boy">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="5" [rowspan]="5">
+      <mat-form-field>
+        <input matInput placeholder="En">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="5" [rowspan]="5">
+      <mat-form-field>
+        <input matInput placeholder="Kanat Sayısı">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="16" [rowspan]="5">
+    </mat-grid-tile>
+  </ng-container>
 </mat-grid-list>

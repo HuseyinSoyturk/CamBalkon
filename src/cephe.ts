@@ -1,5 +1,5 @@
 
-export class Person {
+export class Cephe {
 
   constructor(
     public boy: string,
