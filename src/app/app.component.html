@@ -1,4 +1,4 @@
-<mat-grid-list cols="32" rowHeight="3:1" style="background : gray;">
+<!-- <mat-grid-list cols="32" rowHeight="3:1" style="background : gray;">
   <mat-grid-tile [colspan]="1" [rowspan]="30">
   </mat-grid-tile>
   <mat-grid-tile [colspan]="5" [rowspan]="5">
@@ -45,4 +45,24 @@
     <mat-grid-tile [colspan]="14" [rowspan]="5">
     </mat-grid-tile>
   </ng-container>
-</mat-grid-list>
+</mat-grid-list> -->
+
+<mat-form-field>
+  <input matInput type="text" placeholder="Müşteri" [(ngModel)]="customer">
+  <button mat-button *ngIf="customer" matSuffix mat-icon-button aria-label="Clear" (click)="customer=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<br>
+<div>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Cephe Sayısı" [(ngModel)]="cepheSayisi">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onClickNext()">İleri</button>
+</div>
+
+<ko-stage [config]="configStage">
+  <ko-layer>
+    <ko-circle [config]="configCircle"></ko-circle>
+  </ko-layer>
+</ko-stage>
