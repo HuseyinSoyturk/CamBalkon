@@ -1,68 +1,34 @@
-<!-- <mat-grid-list cols="32" rowHeight="3:1" style="background : gray;">
-  <mat-grid-tile [colspan]="1" [rowspan]="30">
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="5" [rowspan]="5">
-    <mat-form-field>
-      <input matInput type="text" placeholder="Müşteri" [(ngModel)]="customer">
-      <button mat-button *ngIf="customer" matSuffix mat-icon-button aria-label="Clear" (click)="customer=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="26" [rowspan]="5">
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="5" [rowspan]="5">
-    <mat-form-field>
-      <input matInput type="number" placeholder="Cephe Sayısı" [(ngModel)]="cepheSayisi">
-    </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="5">
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="2" [rowspan]="5">
-    <button mat-raised-button color="primary" (click)="onClickNext()">İleri</button>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="23" [rowspan]="5">
-  </mat-grid-tile>
-  <ng-container *ngFor="let cephe of this.cepheler ; let i = index">
-    <mat-grid-tile [colspan]="2" [rowspan]="5">
-      <label> {{i+1}}.Cephe </label>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="5" [rowspan]="5">
-      <mat-form-field>
-        <input matInput placeholder="Boy">
-      </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="5" [rowspan]="5">
-      <mat-form-field>
-        <input matInput placeholder="En">
-      </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="5" [rowspan]="5">
-      <mat-form-field>
-        <input matInput placeholder="Kanat Sayısı">
-      </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="14" [rowspan]="5">
-    </mat-grid-tile>
-  </ng-container>
-</mat-grid-list> -->
-
-<mat-form-field>
-  <input matInput type="text" placeholder="Müşteri" [(ngModel)]="customer">
-  <button mat-button *ngIf="customer" matSuffix mat-icon-button aria-label="Clear" (click)="customer=''">
-    <mat-icon>close</mat-icon>
-  </button>
+<mat-form-field class="kay">
+  <input matInput autocomplete="off" type="text" placeholder="Müşteri" [(ngModel)]="customer">
 </mat-form-field>
 <br>
-<div>
+<div *ngIf="this.cepheSayisiShow" class="kay">
   <mat-form-field>
-    <input matInput type="number" placeholder="Cephe Sayısı" [(ngModel)]="cepheSayisi">
+    <input autocomplete="off" matInput type="number" placeholder="Cephe Sayısı" [(ngModel)]="cepheSayisi">
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="onClickNext()">İleri</button>
+  <button mat-raised-button class="kay" color="primary" (click)="onClickNext()">İleri</button>
 </div>
 
-<ko-stage [config]="configStage">
-  <ko-layer>
-    <ko-circle [config]="configCircle"></ko-circle>
+<ng-container *ngIf="this.ebatShow">
+  <div *ngFor="let cephe of this.cepheler ; let i = index">
+    <label> {{i+1}}.Cephe </label>
+    <mat-form-field class="kay">
+      <input matInput placeholder="Boy" [(ngModel)]="cephe.boy">
+    </mat-form-field>
+    <mat-form-field class="kay">
+      <input matInput placeholder="En" [(ngModel)]="cephe.en">
+    </mat-form-field>
+    <mat-form-field class="kay">
+      <input matInput placeholder="Kanat Sayısı" [(ngModel)]="cephe.kanatSayisi">
+    </mat-form-field>
+  </div>
+  <button *ngIf="this.cepheler.length > 0 " class="kay" mat-raised-button color="primary" (click)="onClickDraw()">Çiz</button>
+</ng-container>
+
+<!-- <div id="drawingPlace"  style="border: 2px solid #000000;width: 1200px;height:400px;margin-left: 20px;margin-top: 20px;"> -->
+<ko-stage style="margin-top: 20px;" *ngIf="this.boxesConfig.length > 0" [config]="configStage">
+  <ko-layer *ngFor="let config of this.boxesConfig">
+    <ko-rect [config]="config"></ko-rect>
   </ko-layer>
 </ko-stage>
+<!-- </div> -->
