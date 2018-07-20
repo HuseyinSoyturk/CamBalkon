@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Cephe } from '../cephe';
 import { of, Observable } from 'rxjs';
+import * as Konva from 'konva';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +17,6 @@ export class AppComponent {
   ebatShow = true;
   cepheSayisiShow = true
 
-  configStage: Observable<any> = of({
-    width: 1200,
-    height: 400
-  });
 
   onClickNext() {
     this.cepheler = []
@@ -30,24 +27,33 @@ export class AppComponent {
   }
 
   onClickDraw() {
-    console.log("this.cepheSayisi", this.cepheSayisi);
-    console.log("this.cepheler", this.cepheler);
+    // first we need to create a stage
+    let stage = new Konva.Stage({
+      container: 'drawingPlace',
+      width: document.getElementById('drawingPlace').offsetWidth - 4,
+      height: document.getElementById('drawingPlace').offsetHeight - 4
+    });
+
+    let layer = new Konva.Layer();
 
     if (this.cepheSayisi == 1) {
       for (let i = 0; i < this.cepheler[0].kanatSayisi; i++) {
-        let box = of({
-          x: 20 + i * 200,
+        let rect = new Konva.Rect({
+          x: 20 + i * 300 * this.cepheler[0].en / this.cepheler[0].kanatSayisi / this.cepheler[0].boy,
           y: 10,
-          width: 200,
-          height: 350,
-          fill: 'white',
+          width: 300 * this.cepheler[0].en / this.cepheler[0].kanatSayisi / this.cepheler[0].boy,
+          height: 300,
+          // fill: 'white',
           stroke: 'black',
           strokeWidth: 2,
           name: 'kanat' + i.toString
         });
-        this.boxesConfig.push(box)
+        layer.add(rect);
       }
     }
+
+    stage.add(layer);
+
     // this.ebatShow = false
     // this.cepheSayisiShow = false
   }

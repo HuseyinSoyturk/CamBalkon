@@ -13,22 +13,16 @@
   <div *ngFor="let cephe of this.cepheler ; let i = index">
     <label> {{i+1}}.Cephe </label>
     <mat-form-field class="kay">
-      <input matInput placeholder="Boy" [(ngModel)]="cephe.boy">
+      <input type="number" matInput placeholder="Boy" [(ngModel)]="cephe.boy" required>
     </mat-form-field>
     <mat-form-field class="kay">
-      <input matInput placeholder="En" [(ngModel)]="cephe.en">
+      <input type="number" matInput placeholder="En" [(ngModel)]="cephe.en" required>
     </mat-form-field>
     <mat-form-field class="kay">
-      <input matInput placeholder="Kanat Sayısı" [(ngModel)]="cephe.kanatSayisi">
+      <input type="number" matInput placeholder="Kanat Sayısı" [(ngModel)]="cephe.kanatSayisi" required>
     </mat-form-field>
   </div>
   <button *ngIf="this.cepheler.length > 0 " class="kay" mat-raised-button color="primary" (click)="onClickDraw()">Çiz</button>
 </ng-container>
 
-<!-- <div id="drawingPlace"  style="border: 2px solid #000000;width: 1200px;height:400px;margin-left: 20px;margin-top: 20px;"> -->
-<ko-stage style="margin-top: 20px;" *ngIf="this.boxesConfig.length > 0" [config]="configStage">
-  <ko-layer *ngFor="let config of this.boxesConfig">
-    <ko-rect [config]="config"></ko-rect>
-  </ko-layer>
-</ko-stage>
-<!-- </div> -->
+<div id="drawingPlace" style="border: 2px solid #000000;width: 1200px;height:400px;margin-left: 20px;margin-top: 20px;"></div>
