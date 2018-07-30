@@ -42,7 +42,7 @@ export class AppComponent {
           x: 60 + i * 300 * this.cepheler[0].en / this.cepheler[0].kanatSayisi / this.cepheler[0].boy,
           y: 60,
           width: 300 * this.cepheler[0].en / this.cepheler[0].kanatSayisi / this.cepheler[0].boy,
-          height: 300,
+          height: 300, 
           stroke: 'black',
           strokeWidth: 2,
           name: 'kanat' + i.toString
