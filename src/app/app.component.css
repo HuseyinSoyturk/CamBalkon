@@ -2,3 +2,22 @@
 .kay {
     margin-left: 10px;
 }
+
+.drawing-place {
+    border: 2px solid #000000;
+    width: 60%;
+    height:90%;
+    margin-left: 20px;
+    margin-top: 20px;
+    position: absolute;
+    left:35%;
+    top: 0;
+}
+
+.cehpe-config{
+    width: 40%;
+}
+
+.short-input {
+    width: 125px !important;
+}

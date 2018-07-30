@@ -39,17 +39,39 @@ export class AppComponent {
     if (this.cepheSayisi == 1) {
       for (let i = 0; i < this.cepheler[0].kanatSayisi; i++) {
         let rect = new Konva.Rect({
-          x: 20 + i * 300 * this.cepheler[0].en / this.cepheler[0].kanatSayisi / this.cepheler[0].boy,
-          y: 10,
+          x: 60 + i * 300 * this.cepheler[0].en / this.cepheler[0].kanatSayisi / this.cepheler[0].boy,
+          y: 60,
           width: 300 * this.cepheler[0].en / this.cepheler[0].kanatSayisi / this.cepheler[0].boy,
           height: 300,
-          // fill: 'white',
           stroke: 'black',
           strokeWidth: 2,
           name: 'kanat' + i.toString
         });
         layer.add(rect);
+
+        let enCm = new Konva.Text({
+          x: 60 + i * 300 * this.cepheler[0].en / this.cepheler[0].kanatSayisi / this.cepheler[0].boy,
+          y: 30,
+          text: (this.cepheler[0].en / this.cepheler[0].kanatSayisi).toString()+"cm",
+          fontFamily: 'Calibri',
+          fontSize: 18,
+          padding: 5,
+          fill: 'black'
+        });
+        layer.add(enCm);
       }
+      let boyCm = new Konva.Text({
+        x: 300 * this.cepheler[0].en / this.cepheler[0].boy + 90,
+        y: this.cepheler[0].boy / 2 + 60,
+        text: this.cepheler[0].boy.toString()+"cm",
+        fontFamily: 'Calibri',
+        fontSize: 18,
+        padding: 5,
+        fill: 'black'
+      });
+      layer.add(boyCm);
+    } else {
+      //to do 
     }
 
     stage.add(layer);

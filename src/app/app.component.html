@@ -9,20 +9,20 @@
   <button mat-raised-button class="kay" color="primary" (click)="onClickNext()">İleri</button>
 </div>
 
-<ng-container *ngIf="this.ebatShow">
+<ng-container class="cehpe-config" *ngIf="this.ebatShow">
   <div *ngFor="let cephe of this.cepheler ; let i = index">
     <label> {{i+1}}.Cephe </label>
-    <mat-form-field class="kay">
+    <mat-form-field class="kay short-input ">
       <input type="number" matInput placeholder="Boy" [(ngModel)]="cephe.boy" required>
     </mat-form-field>
-    <mat-form-field class="kay">
+    <mat-form-field class="kay short-input ">
       <input type="number" matInput placeholder="En" [(ngModel)]="cephe.en" required>
     </mat-form-field>
-    <mat-form-field class="kay">
+    <mat-form-field class="kay short-input ">
       <input type="number" matInput placeholder="Kanat Sayısı" [(ngModel)]="cephe.kanatSayisi" required>
     </mat-form-field>
   </div>
   <button *ngIf="this.cepheler.length > 0 " class="kay" mat-raised-button color="primary" (click)="onClickDraw()">Çiz</button>
 </ng-container>
 
-<div id="drawingPlace" style="border: 2px solid #000000;width: 1200px;height:400px;margin-left: 20px;margin-top: 20px;"></div>
+<div id="drawingPlace" class="drawing-place"></div>
