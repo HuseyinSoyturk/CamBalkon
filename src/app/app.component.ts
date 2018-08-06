@@ -52,18 +52,31 @@ export class AppComponent {
         let enCm = new Konva.Text({
           x: 60 + i * 300 * this.cepheler[0].en / this.cepheler[0].kanatSayisi / this.cepheler[0].boy,
           y: 30,
-          text: (this.cepheler[0].en / this.cepheler[0].kanatSayisi).toString()+"cm",
+          text: (this.cepheler[0].en / this.cepheler[0].kanatSayisi).toFixed(2).toString()+"cm",
           fontFamily: 'Calibri',
           fontSize: 18,
           padding: 5,
           fill: 'black'
         });
         layer.add(enCm);
+
+        var arrow = new Konva.Arrow({
+          x: 65 + i * 300 * this.cepheler[0].en / this.cepheler[0].kanatSayisi / this.cepheler[0].boy,
+          y: this.cepheler[0].boy / 2 + 60,
+          points: [0,0, 60,0],
+          pointerLength: 10,
+          pointerWidth : 10,
+          fill: 'black',
+          stroke: 'black',
+          strokeWidth: 4
+        });
+
+        layer.add(arrow)
       }
       let boyCm = new Konva.Text({
         x: 300 * this.cepheler[0].en / this.cepheler[0].boy + 90,
         y: this.cepheler[0].boy / 2 + 60,
-        text: this.cepheler[0].boy.toString()+"cm",
+        text: this.cepheler[0].boy.toFixed(2).toString()+"cm",
         fontFamily: 'Calibri',
         fontSize: 18,
         padding: 5,
