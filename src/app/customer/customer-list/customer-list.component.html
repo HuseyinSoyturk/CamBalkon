@@ -1,8 +1,17 @@
 <div class="list-container">
   <mat-list role="list">
+    <h1 mat-subheader>Müşteriler</h1>
     <ng-container *ngFor="let customer of this.customerService.customers , let i = index">
-      <mat-list-item (click)="onClickItem(i)" class="list-item"  role="listitem">{{customer}}</mat-list-item>
+      <mat-list-item role="listitem">
+        <h4>{{customer}}</h4>
+        <div class="button-container">
+          <button class="btn" mat-raised-button color="warn">Sil</button>
+          <button class="btn" mat-raised-button color="accent">Düzenle</button>
+          <button class="btn" mat-raised-button color="primary">Ayrıntılar</button>
+        </div>
+      </mat-list-item>
       <mat-divider></mat-divider>
     </ng-container>
   </mat-list>
 </div>
+<button mat-raised-button color="primary">Yeni Müşteri</button>
