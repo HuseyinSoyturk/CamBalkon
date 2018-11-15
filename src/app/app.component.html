@@ -1,28 +1,40 @@
-<mat-form-field class="kay">
-  <input matInput autocomplete="off" type="text" placeholder="Müşteri" [(ngModel)]="customer">
-</mat-form-field>
-<br>
-<div *ngIf="this.cepheSayisiShow" class="kay">
-  <mat-form-field>
-    <input autocomplete="off" matInput type="number" placeholder="Cephe Sayısı" [(ngModel)]="cepheSayisi">
+<mat-tab-group>
+  <mat-tab label="ÇİZİM">
+    <app-draw></app-draw>
+  </mat-tab>
+  <mat-tab label="MÜŞTERİLER">
+    <app-customer></app-customer>
+  </mat-tab>
+  <mat-tab label="ÜRÜNLER">
+    <app-product></app-product>
+  </mat-tab>
+</mat-tab-group>
+
+<!-- <mat-form-field class="kay">
+    <input matInput autocomplete="off" type="text" placeholder="Müşteri" [(ngModel)]="customer">
   </mat-form-field>
-  <button mat-raised-button class="kay" color="primary" (click)="onClickNext()">İleri</button>
-</div>
-
-<ng-container class="cehpe-config" *ngIf="this.ebatShow">
-  <div *ngFor="let cephe of this.cepheler ; let i = index">
-    <label> {{i+1}}.Cephe </label>
-    <mat-form-field class="kay short-input ">
-      <input type="number" matInput placeholder="Boy" [(ngModel)]="cephe.boy" required>
+  <br>
+  <div *ngIf="this.cepheSayisiShow" class="kay">
+    <mat-form-field>
+      <input autocomplete="off" matInput type="number" placeholder="Cephe Sayısı" [(ngModel)]="cepheSayisi">
     </mat-form-field>
-    <mat-form-field class="kay short-input ">
-      <input type="number" matInput placeholder="En" [(ngModel)]="cephe.en" required>
-    </mat-form-field>
-    <mat-form-field class="kay short-input ">
-      <input type="number" matInput placeholder="Kanat Sayısı" [(ngModel)]="cephe.kanatSayisi" required>
-    </mat-form-field>
+    <button mat-raised-button class="kay" color="primary" (click)="onClickNext()">İleri</button>
   </div>
-  <button *ngIf="this.cepheler.length > 0 " class="kay" mat-raised-button color="primary" (click)="onClickDraw()">Çiz</button>
-</ng-container>
 
-<div id="drawingPlace" class="drawing-place myDivToPrint"></div>
+  <ng-container class="cehpe-config" *ngIf="this.ebatShow">
+    <div *ngFor="let cephe of this.cepheler ; let i = index">
+      <label> {{i+1}}.Cephe </label>
+      <mat-form-field class="kay short-input ">
+        <input type="number" matInput placeholder="Boy" [(ngModel)]="cephe.boy" required>
+      </mat-form-field>
+      <mat-form-field class="kay short-input ">
+        <input type="number" matInput placeholder="En" [(ngModel)]="cephe.en" required>
+      </mat-form-field>
+      <mat-form-field class="kay short-input ">
+        <input type="number" matInput placeholder="Kanat Sayısı" [(ngModel)]="cephe.kanatSayisi" required>
+      </mat-form-field>
+    </div>
+    <button *ngIf="this.cepheler.length > 0 " class="kay" mat-raised-button color="primary" (click)="onClickDraw()">Çiz</button>
+  </ng-container>
+
+  <div id="drawingPlace" class="drawing-place"></div> -->

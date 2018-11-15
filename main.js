@@ -7,13 +7,12 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1366,
         height: 768,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#2f2f2f',
         icon: path.join(__dirname, 'dist/angular-electron/assets/balcony_icon.ico')
     })
 
     win.loadURL(`file://${__dirname}/dist/angular-electron/index.html`)
-
-    // win.webContents.openDevTools()
+    win.webContents.openDevTools()
 
     win.on('closed', () => {
         win = null

@@ -1,0 +1,8 @@
+<div class="list-container">
+  <mat-list role="list">
+    <ng-container *ngFor="let customer of this.customerService.customers , let i = index">
+      <mat-list-item (click)="onClickItem(i)" class="list-item"  role="listitem">{{customer}}</mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-list>
+</div>
