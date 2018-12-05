@@ -8,7 +8,7 @@ import * as Konva from 'konva';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   customer = ''
   cepheSayisi;
@@ -17,6 +17,11 @@ export class AppComponent {
   ebatShow = true;
   cepheSayisiShow = true
 
+  ngOnInit(){
+    if(!localStorage.customerId){
+      localStorage.customerId = 0;
+    }
+  }
 
   onClickNext() {
     this.cepheler = []

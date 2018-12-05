@@ -10,11 +10,12 @@
 }
 
 .button-container{
-    position: relative;
+    position: absolute;
     right: 0;
 }
 
 .btn{
+    min-width: 40px;
     margin-right: 5px;
     text-align: center;
 }

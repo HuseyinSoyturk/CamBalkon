@@ -12,6 +12,7 @@ function createWindow() {
     })
 
     win.loadURL(`file://${__dirname}/dist/angular-electron/index.html`)
+    // win.loadURL(`file://${__dirname}/src/app/app.component.html`)
     win.webContents.openDevTools()
 
     win.on('closed', () => {

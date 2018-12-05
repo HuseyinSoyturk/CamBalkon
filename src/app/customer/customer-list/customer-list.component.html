@@ -1,17 +1,25 @@
 <div class="list-container">
   <mat-list role="list">
-    <h1 mat-subheader>Müşteriler</h1>
+    <div>
+      <h1 mat-subheader style="font-size: 20px;">MÜŞTERİ LİSTESİ</h1>
+    </div>
     <ng-container *ngFor="let customer of this.customerService.customers , let i = index">
       <mat-list-item role="listitem">
-        <h4>{{customer}}</h4>
+        <h4>{{customer.name}}</h4>
         <div class="button-container">
-          <button class="btn" mat-raised-button color="warn">Sil</button>
-          <button class="btn" mat-raised-button color="accent">Düzenle</button>
-          <button class="btn" mat-raised-button color="primary">Ayrıntılar</button>
+          <button (click)="onClickDelete(customer.id)" title="SİL" class="btn" mat-raised-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button (click)="onClickEdit(customer.id)" title="DÜZENLE" class="btn" mat-raised-button color="accent">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click)="onClickDetail(customer.id)" title="AYRINTILAR" class="btn" mat-raised-button color="primary">
+            <mat-icon>list_alt</mat-icon>
+          </button>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
     </ng-container>
   </mat-list>
 </div>
-<button mat-raised-button color="primary">Yeni Müşteri</button>
+<button (click)="onClickButton()" style="margin-left: 10px;" mat-raised-button color="primary">Yeni Müşteri</button>

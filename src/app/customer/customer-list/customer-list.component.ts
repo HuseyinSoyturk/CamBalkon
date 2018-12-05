@@ -15,4 +15,11 @@ export class CustomerListComponent implements OnInit {
     }
   }
 
+  onClickButton(){
+    let customer = { id:localStorage.customerId , name:'TOM' , adres:'Yakuplu/İSTANBUL' , tel:'05429876543' , fax:'05429876543'}
+    this.customerService.customers.push(customer)
+    localStorage.customers = JSON.stringify(this.customerService.customers) 
+    localStorage.customerId++ ;
+  }
+
 }

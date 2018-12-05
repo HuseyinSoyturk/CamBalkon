@@ -1,1 +1,23 @@
-<button mat-raised-button color="primary" (click)="onClickButton()">Ekle</button>
+<div class="form-container">
+  <h3>YENİ MÜŞTERİ BİLGİLERİ</h3>
+  <mat-form-field>
+    <input matInput placeholder="AD">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="ADRES">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="TELEFON">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="FAX">
+  </mat-form-field>
+  <div>
+    <button title="TEMİZLE" class="btn" mat-raised-button color="warn">
+      <mat-icon>clear</mat-icon>
+    </button>
+    <button title="KAYDET" class="btn" mat-raised-button color="accent">
+      <mat-icon>check</mat-icon>
+    </button>
+  </div>
+</div>
